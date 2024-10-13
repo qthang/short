@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="asset/img/favicon.png"  >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>short</title>
+    <title>Short url</title>
     <style>
       :root {
         --color-primary: #5c7cfa;
@@ -208,16 +208,16 @@
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
       <input placeholder="Enter the URL to shorten..." x-model="url" x-ref="url" />
       <details>
-        <summary>Custom settings</summary>
+        <summary>Custom alias (optional)</summary>
         <div>
-          <input placeholder="slug" x-model="slug" />
-          <small>ID short random</small>
+          <input placeholder="slug" x-model="alias" />
+          <small>Random short ID</small>
         </div>
       </details>
       <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">Generate</button>
     </main>
     <footer>
-     service
+     gg.qthang.net
     </footer>
     <script src="asset/js/alpine.js"></script>
     <script>
@@ -263,7 +263,7 @@
 
               $nextTick(() => {
                 $refs.url.select()
-                this.alert = { type: 'success', message: `Link ${document.execCommand('Copy') ? 'Copy' : 'Generate'} ` }
+                this.alert = { type: 'success', message: `Link ${document.execCommand('Copy') ? 'Copied' : 'Generate'} ` }
               })
             })
             .catch(e => {
